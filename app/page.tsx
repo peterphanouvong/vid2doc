@@ -43,7 +43,7 @@ const WaitlistPage = () => {
       setSubmitted(true);
       setFormData({ email: "", role: "", contentFrequency: "" });
     } catch (err: unknown) {
-      if (err.code === "23505") {
+      if (err instanceof Error && (err as { code?: string }).code === "23505") {
         // unique violation
         setError("This email has already joined the waitlist!");
       } else {
@@ -54,7 +54,14 @@ const WaitlistPage = () => {
     }
   };
 
-  const handleChange = (e) => {
+  interface ChangeEvent {
+    target: {
+      name: string;
+      value: string;
+    };
+  }
+
+  const handleChange = (e: ChangeEvent) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,

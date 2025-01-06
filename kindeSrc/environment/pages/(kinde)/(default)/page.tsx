@@ -30,7 +30,7 @@ const getKindeSignInUrl = () => "@847681e125384709836f921deb311104@";
 //   getKindeCSRF,
 //   getKindeWidget,
 // } from "@kinde/infrastructure";
-import { renderToString } from "react-dom/server";
+import { renderToString } from "react-dom/server.browser";
 
 export const pageSettings = {
   bindings: {

@@ -16,20 +16,6 @@ const getKindeSignUpUrl = () => "@b1d3a51558e64036ad072b56ebae37f5@";
 
 const getKindeSignInUrl = () => "@847681e125384709836f921deb311104@";
 
-// export {
-//   getKindeWidget,
-//   getKindeNonce,
-//   getKindeCSRF,
-//   getKindeRequiredCSS,
-//   getKindeRequiredJS,
-// };
-
-// import {
-//   getKindeRequiredCSS,
-//   getKindeRequiredJS,
-//   getKindeCSRF,
-//   getKindeWidget,
-// } from "@kinde/infrastructure";
 import { renderToString } from "react-dom/server.browser";
 
 export const pageSettings = {
@@ -49,10 +35,19 @@ const Layout = async ({ request }) => {
         <title>{kinde.localization.get("page_title")}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
+        <style nonce={getKindeNonce()}>
+          {`
+            .c-header {
+              text-align: center;
+            }
+          `}
+        </style>
       </head>
       <body>
         <div id="root" data-roast-root="/admin">
-          <header>Company name</header>
+          <header className="c-header">
+            <div>English (UK)</div>
+          </header>
           <main>
             <h2>{kinde.localization.get("heading")}</h2>
             <p>{kinde.localization.get("description")}</p>

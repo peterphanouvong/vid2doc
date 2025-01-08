@@ -179,9 +179,7 @@ header {
               src="https://z-m-static.xx.fbcdn.net/rsrc.php/v4/yD/r/5D8s-GsHJlJ.png"
             />
           </div>
-          <main>
-            <KindeWidget />
-          </main>
+          <main>{getKindeWidget()}</main>
           <div className="footer">
             <div>
               <button className="button">

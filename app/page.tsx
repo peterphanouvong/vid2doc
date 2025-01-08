@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 interface FormData {
   email: string;
@@ -79,6 +80,8 @@ const WaitlistPage = () => {
 
       <div className="relative max-w-6xl mx-auto px-4 py-16">
         {/* Hero Section */}
+
+        <LoginLink>Login</LoginLink>
         <div className="text-center mb-16">
           <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 rounded-full text-sm font-medium mb-4 gap-2">
             <Sparkles className="w-4 h-4" />

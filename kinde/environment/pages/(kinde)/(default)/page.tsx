@@ -24,7 +24,7 @@ const Layout = async ({ request, context }: KindePageEvent) => {
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <style>{`
-       :root {
+      :root {
   --kinde-button-primary-background-color: #0063e0;
   --kinde-button-primary-color: white;
   --kinde-button-font-weight: 600;
@@ -50,12 +50,30 @@ const Layout = async ({ request, context }: KindePageEvent) => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(
-    to right,
-    white,
-    rgba(243, 232, 255, 0.3),
-    rgba(239, 246, 255, 0.3)
-  );
+}
+
+.background-image {
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0) 40%
+    ),
+    radial-gradient(
+      rgb(255, 209, 82) 30%,
+      rgb(226, 105, 150),
+      rgba(226, 105, 150, 0.4) 41%,
+      rgba(0, 0, 0, 0) 52%
+    ),
+    radial-gradient(rgb(160, 51, 255) 37%, rgba(0, 0, 0, 0) 46%),
+    linear-gradient(155deg, rgba(0, 0, 0, 0) 65%, rgb(37, 212, 102) 95%),
+    linear-gradient(45deg, rgb(0, 101, 224), rgb(15, 139, 255));
+  background-position: left bottom, 109% 68%, 109% 68%, center center,
+    center center;
+  background-repeat: no-repeat;
+  background-size: 200% 200%, 285% 500%, 285% 500%, cover, cover;
+  inset: 0px;
+  opacity: 0.08;
+  pointer-events: none;
+  position: absolute;
 }
 
 .icon-wrapper {
@@ -165,10 +183,12 @@ header {
 }
 
 
+
         `}</style>
       </head>
       <body>
         <div id="root" data-roast-root="/admin">
+          <div className="background-image"></div>
           <header>English (UK)</header>
           <div className="icon-wrapper">
             <img

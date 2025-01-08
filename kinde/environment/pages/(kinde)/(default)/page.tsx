@@ -23,12 +23,69 @@ const Layout = async ({ request, context }: KindePageEvent) => {
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
+        <style>{`
+        :root {
+  --kinde-button-primary-background-color: #0063e0;
+  --kinde-button-primary-color: white;
+  --kinde-button-font-weight: 600;
+  --kinde-designer-control-select-text-border-radius: 12px;
+  --kinde-button-border-radius: 24px;
+  --
+}
+
+.kinde-control-label {
+  display: none;
+}
+
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 12px;
+
+
+}
+
+.links a{
+  text-decoration: none;
+  color: #777;
+}
+
+
+.kinde-form {
+
+  & > *:not(:nth-last-child(2)) {
+    margin-block-end: 1rem;
+  }
+}
+
+        `}</style>
       </head>
       <body>
         <div id="root" data-roast-root="/admin">
-          <main>
-            <div>{getKindeWidget()}</div>
-          </main>
+          <header>English (UK)</header>
+          <div>icon(replace)</div>
+          <main>{getKindeWidget()}</main>
+
+          <div>
+            <button>Create new account</button>
+          </div>
+          <div>
+            <div className="meta-logo">Meta</div>
+            <div className="links">
+              <a href="">About</a>
+              <a href="">Help</a>
+              <a href="">More</a>
+            </div>
+          </div>
         </div>
       </body>
     </html>

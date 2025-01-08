@@ -37,7 +37,7 @@ const Layout = async ({ request, context }: KindePageEvent) => {
         }
 
         * {
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+          font-family: sans-serif;
         }
 
         header {

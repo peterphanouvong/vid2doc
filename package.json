@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@kinde/infrastructure": "^0.1.2",
+    "@kinde-oss/kinde-auth-nextjs": "^2.4.6",
+    "@kinde/infrastructure": "^0.2.0",
     "@radix-ui/react-slot": "^1.1.1",
     "@supabase/ssr": "^0.5.2",
     "class-variance-authority": "^0.7.1",
@@ -29,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.2",
     "postcss": "^8",
+    "postcss-import": "^16.1.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

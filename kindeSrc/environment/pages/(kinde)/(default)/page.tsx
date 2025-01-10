@@ -34,10 +34,10 @@ const Layout = async ({ request, context }: KindePageEvent) => {
   const { data: res } = await kindeAPI.get({
     endpoint: "environment",
   });
-  const { environment } = res;
+  // const { environment } = res;
 
-  console.log(getEnvironmentVariable("secret"));
-  console.log(getEnvironmentVariable("notsecret"));
+  // console.log(getEnvironmentVariable("secret"));
+  // console.log(getEnvironmentVariable("notsecret"));
   return (
     <html lang={request.locale.lang}>
       <head>
@@ -242,7 +242,7 @@ header {
                   />
                 </div>
               </div>
-              <pre>{JSON.stringify(res, null, 2)}</pre>
+              {/* <pre>{JSON.stringify(res, null, 2)}</pre> */}
               <div className="links">
                 <a href="">About</a>
                 <a href="">Help</a>

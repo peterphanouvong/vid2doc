@@ -7,12 +7,31 @@ import {
   getKindeRequiredJS,
   getKindeCSRF,
   getKindeWidget,
+  createKindeAPI,
+  getEnvironmentVariable,
 } from "@kinde/infrastructure";
 
 import { renderToString } from "react-dom/server.browser";
 import { KindePageEvent } from "@/lib/utils";
 
+export const pageSettings = {
+  bindings: {
+    "kinde.fetch": {},
+    "kinde.env": {},
+    url: {},
+  },
+};
+
 const Layout = async ({ request, context }: KindePageEvent) => {
+  const kindeAPI = await createKindeAPI({ request, context });
+
+  const { data: res } = await kindeAPI.get({
+    endpoint: "environment",
+  });
+  const { environment } = res;
+
+  console.log(getEnvironmentVariable("secret"));
+  console.log(getEnvironmentVariable("notsecret"));
   return (
     <html lang={request.locale.lang}>
       <head>
@@ -195,7 +214,7 @@ header {
               data-bloks-name="bk.components.Image"
               role="heading"
               alt="Facebook from Meta"
-              class="wbloks_1"
+              className="wbloks_1"
               src="https://z-m-static.xx.fbcdn.net/rsrc.php/v4/yD/r/5D8s-GsHJlJ.png"
             />
           </div>
@@ -212,12 +231,12 @@ header {
                   <img
                     data-bloks-name="bk.components.Image"
                     alt="Meta logo"
-                    class="meta-img"
+                    className="meta-img"
                     src="https://z-m-static.xx.fbcdn.net/rsrc.php/v4/yM/r/DDgwTv3JehF.png"
                   />
                 </div>
               </div>
-
+              <pre>{JSON.stringify(res, null, 2)}</pre>
               <div className="links">
                 <a href="">About</a>
                 <a href="">Help</a>

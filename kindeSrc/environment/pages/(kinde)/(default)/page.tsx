@@ -14,11 +14,6 @@ import { renderToString } from "react-dom/server.browser";
 import { KindePageEvent } from "@/lib/utils";
 
 const Layout = async ({ request, context }: KindePageEvent) => {
-  const kindeAPI = await createKindeAPI({
-    request,
-    context,
-  });
-
   return (
     <html lang={request.locale.lang}>
       <head>

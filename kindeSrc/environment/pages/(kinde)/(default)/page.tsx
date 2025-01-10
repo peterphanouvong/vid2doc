@@ -7,12 +7,22 @@ import {
   getKindeRequiredJS,
   getKindeCSRF,
   getKindeWidget,
+  createKindeAPI,
 } from "@kinde/infrastructure";
 
 import { renderToString } from "react-dom/server.browser";
 import { KindePageEvent } from "@/lib/utils";
 
 const Layout = async ({ request, context }: KindePageEvent) => {
+  const kindeAPI = await createKindeAPI({
+    request,
+    context,
+  });
+
+  const { data: res } = await kindeAPI.get({
+    endpoint: "environment",
+  });
+
   return (
     <html lang={request.locale.lang}>
       <head>
@@ -217,6 +227,8 @@ header {
                   />
                 </div>
               </div>
+
+              <pre>{JSON.stringify(res, null, 2)}</pre>
               <div className="links">
                 <a href="">About</a>
                 <a href="">Help</a>

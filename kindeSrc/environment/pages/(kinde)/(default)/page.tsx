@@ -23,6 +23,12 @@ export const pageSettings = {
 };
 
 const Layout = async ({ request, context }: KindePageEvent) => {
+  console.log(context.domains.kindeDomain);
+  console.log(getEnvironmentVariable("secret"));
+  console.log(getEnvironmentVariable("notsecret"));
+  console.log(getEnvironmentVariable(""));
+  console.log(getEnvironmentVariable("notsecret"));
+
   const kindeAPI = await createKindeAPI({ request, context });
 
   const { data: res } = await kindeAPI.get({

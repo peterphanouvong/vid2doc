@@ -218,7 +218,6 @@ header {
                 </div>
               </div>
 
-              <pre>{JSON.stringify(res, null, 2)}</pre>
               <div className="links">
                 <a href="">About</a>
                 <a href="">Help</a>

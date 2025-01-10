@@ -7,7 +7,6 @@ import {
   getKindeRequiredJS,
   getKindeCSRF,
   getKindeWidget,
-  createKindeAPI,
 } from "@kinde/infrastructure";
 
 import { renderToString } from "react-dom/server.browser";

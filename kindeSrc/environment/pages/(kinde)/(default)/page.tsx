@@ -19,10 +19,6 @@ const Layout = async ({ request, context }: KindePageEvent) => {
     context,
   });
 
-  const { data: res } = await kindeAPI.get({
-    endpoint: "environment",
-  });
-
   return (
     <html lang={request.locale.lang}>
       <head>

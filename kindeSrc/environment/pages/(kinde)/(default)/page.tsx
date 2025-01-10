@@ -26,8 +26,8 @@ const Layout = async ({ request, context }: KindePageEvent) => {
   console.log(context.domains.kindeDomain);
   console.log(getEnvironmentVariable("secret"));
   console.log(getEnvironmentVariable("notsecret"));
-  console.log(getEnvironmentVariable(""));
-  console.log(getEnvironmentVariable("notsecret"));
+  console.log(getEnvironmentVariable("KINDE_WF_M2M_CLIENT_ID"));
+  console.log(getEnvironmentVariable("KINDE_WF_M2M_CLIENT_SECRET"));
 
   const kindeAPI = await createKindeAPI({ request, context });
 

@@ -1,6 +1,10 @@
 "use server";
 
-import { getKindeWidget, type KindePageEvent } from "@kinde/infrastructure";
+import {
+  getKindeWidget,
+  getLogoUrl,
+  type KindePageEvent,
+} from "@kinde/infrastructure";
 import React from "react";
 import { renderToString } from "react-dom/server.browser";
 import Layout from "../../layout";
@@ -17,10 +21,14 @@ const styles: {
     height: "100vh",
   },
   sidePanel: {
-    borderRadius: "2rem",
+    borderTopLeftRadius: "2rem",
+    borderBottomLeftRadius: "2rem",
+    borderBottomRightRadius: "0.5rem",
+    borderTopRightRadius: "0.5rem",
     backgroundColor: "#f5f5f5",
     borderColor: "#aaa",
     borderStyle: "solid",
+    borderWidth: "1px",
     flex: 1,
     margin: "0.5rem",
     maxWidth: "1024px",
@@ -51,6 +59,7 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
         <main style={styles.loginForm}>
           <div style={{ padding: "2rem" }}>
             <div style={{ textAlign: "center" }}>
+              <img src={getLogoUrl()} alt={context.widget.content.logo_alt} />
               <h2 style={styles.heading}>{context.widget.content.heading}</h2>
               <p style={styles.description}>
                 {context.widget.content.description}

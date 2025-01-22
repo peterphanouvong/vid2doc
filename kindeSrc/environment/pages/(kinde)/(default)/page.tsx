@@ -15,6 +15,8 @@ const styles: {
   loginForm: React.CSSProperties;
   heading: React.CSSProperties;
   description: React.CSSProperties;
+  logoWrapper: React.CSSProperties;
+  logo: React.CSSProperties;
 } = {
   container: {
     display: "flex",
@@ -48,7 +50,16 @@ const styles: {
   description: {
     fontSize: "14px",
     marginBottom: "1.5rem",
-    color: "#555",
+    color: "#aaa",
+  },
+  logoWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1rem",
+  },
+  logo: {
+    width: "44px",
+    height: "44px",
   },
 };
 
@@ -59,7 +70,13 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
         <main style={styles.loginForm}>
           <div style={{ padding: "2rem" }}>
             <div style={{ textAlign: "center" }}>
-              <img src={getLogoUrl()} alt={context.widget.content.logo_alt} />
+              <div style={styles.logoWrapper}>
+                <img
+                  style={styles.logo}
+                  src={getLogoUrl()}
+                  alt={context.widget.content.logo_alt}
+                />
+              </div>
               <h2 style={styles.heading}>{context.widget.content.heading}</h2>
               <p style={styles.description}>
                 {context.widget.content.description}

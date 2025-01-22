@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@kinde-oss/kinde-auth-nextjs": "^2.4.6",
-    "@kinde/infrastructure": "^0.2.0",
+    "@kinde/infrastructure": "^0.2.2",
     "@radix-ui/react-slot": "^1.1.1",
     "@supabase/ssr": "^0.5.2",
     "class-variance-authority": "^0.7.1",

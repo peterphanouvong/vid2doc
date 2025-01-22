@@ -38,6 +38,7 @@ export const generateCSSVariables = (): string => `
     display: flex;
     align-items: center;
     text-align: center;
+    gap: 1rem;
   }
 
   [data-kinde-choice-separator]::before,

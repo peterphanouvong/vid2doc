@@ -35,10 +35,16 @@ export const generateCSSVariables = (): string => `
 
   [data-kinde-choice-separator] {
     text-transform: lowercase;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
 
-  [data-kinde-choice-separator]::before {
-    content: " this won't work ";
+  [data-kinde-choice-separator]::before,
+  [data-kinde-choice-separator]::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
   }
 
 `;

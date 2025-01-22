@@ -36,4 +36,9 @@ export const generateCSSVariables = (): string => `
   [data-kinde-choice-separator] {
     text-transform: lowercase;
   }
+
+  [data-kinde-choice-separator]::before {
+    content: " this won't work ";
+  }
+
 `;

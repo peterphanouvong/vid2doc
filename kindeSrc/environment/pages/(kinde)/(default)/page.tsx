@@ -28,7 +28,7 @@ const styles: {
     borderBottomRightRadius: "0.5rem",
     borderTopRightRadius: "0.5rem",
     backgroundColor: "#f5f5f5",
-    borderColor: "#aaa",
+    borderColor: "#ccc",
     borderStyle: "solid",
     borderWidth: "1px",
     flex: 1,
@@ -50,7 +50,7 @@ const styles: {
   description: {
     fontSize: "14px",
     marginBottom: "1.5rem",
-    color: "#aaa",
+    color: "#555",
   },
   logoWrapper: {
     display: "flex",

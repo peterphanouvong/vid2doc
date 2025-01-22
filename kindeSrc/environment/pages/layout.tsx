@@ -28,7 +28,11 @@ export const Layout = ({
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
-        <style>{generateCSSVariables()}</style>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: generateCSSVariables(),
+          }}
+        />
       </head>
       <body>
         <div data-roast-root="true">{children}</div>

@@ -13,6 +13,7 @@ const kindeVariables = {
   buttonSecondaryBorderRadius: "12px",
   buttonBlockSize: "44px",
   controlSelectTextBlockSize: "44px",
+  controlSelectTextBorderColor: "#ccc",
 } as const;
 
 export const generateCSSVariables = (): string => `
@@ -29,6 +30,10 @@ export const generateCSSVariables = (): string => `
     --kinde-button-secondary-border-radius: ${kindeVariables.buttonSecondaryBorderRadius};
     --kinde-button-block-size: ${kindeVariables.buttonBlockSize};
     --kinde-control-select-text-block-size: ${kindeVariables.controlSelectTextBlockSize};
+    --kinde-control-select-text-border-color: ${kindeVariables.controlSelectTextBorderColor};
   }
 
+  [data-kinde-choice-separator] {
+    text-transform: lowercase;
+  }
 `;

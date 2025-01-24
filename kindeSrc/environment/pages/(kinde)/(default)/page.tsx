@@ -6,6 +6,7 @@ import {
   type KindePageEvent,
 } from "@kinde/infrastructure";
 import React from "react";
+// @ts-ignore
 import { renderToString } from "react-dom/server.browser";
 import Layout from "../../layout";
 

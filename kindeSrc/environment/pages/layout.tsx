@@ -27,7 +27,7 @@ export const Layout = ({
         <meta name="csrf-token" content={getKindeCSRF()} />
         <link
           rel="stylesheet"
-          href="https://vid2doc-six.vercel.app/style.css"
+          href="https://vid2doc-site.kindedemo.com/style.css"
         ></link>
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}

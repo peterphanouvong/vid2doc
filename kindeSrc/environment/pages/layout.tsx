@@ -39,7 +39,10 @@ export const Layout = ({
         />
       </head>
       <body>
-        <div data-roast-root="true">{children}</div>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+        <div data-roast-root="true" data-kinde-root="true">
+          {children}
+        </div>
       </body>
     </html>
   );

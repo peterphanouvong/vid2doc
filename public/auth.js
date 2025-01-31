@@ -15,6 +15,8 @@ function animateFromBelow(element, offset = 100, duration = 500, delay = 0) {
   element.style.transform = `translateY(${offset}px)`;
   element.style.opacity = "0";
 
+  element.offsetHeight; // Trigger reflow to make sure the initial styles are applied
+
   // Set up the transition
   element.style.transition = `transform ${duration}ms ease-out ${delay}ms, opacity ${duration}ms ease-out ${delay}ms`;
 

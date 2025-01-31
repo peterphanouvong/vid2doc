@@ -1,62 +1,71 @@
-// 6. Animate into position from below
-function animateFromBelow(
-  element,
-  duration = 800,
-  offset = 50,
-  easing = "easeOutQuart"
-) {
-  // Store original position to prevent layout shifts
+/**
+ * Animates an element from below into its original position
+ * @param {HTMLElement} element - The DOM element to animate
+ * @param {number} offset - The starting offset in pixels (how far below)
+ * @param {number} duration - Animation duration in milliseconds
+ * @param {number} delay - Delay before animation starts in milliseconds
+ * @returns {Promise} Resolves when animation completes
+ */
+function animateFromBelow(element, offset = 100, duration = 500, delay = 0) {
+  // Store original transition and transform
+  const originalTransition = element.style.transition;
   const originalTransform = element.style.transform;
 
-  // Start from below by the offset amount
+  // Set initial position
   element.style.transform = `translateY(${offset}px)`;
+  element.style.opacity = "0";
 
-  // Force browser to acknowledge the starting position
-  // element.offsetHeight;
+  // Set up the transition
+  element.style.transition = `transform ${duration}ms ease-out ${delay}ms, opacity ${duration}ms ease-out ${delay}ms`;
 
-  // Function for the actual animation
-  const startTime = performance.now();
-
-  // Collection of easing functions
-  const easings = {
-    easeOutQuart: (x) => 1 - Math.pow(1 - x, 4),
-    easeInOutCubic: (x) =>
-      x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
-    easeOutBack: (x) => {
-      const c1 = 1.70158;
-      const c3 = c1 + 1;
-      return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
-    },
-    linear: (x) => x,
-  };
-
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Apply selected easing function
-    const easingFn = easings[easing] || easings.easeOutQuart;
-    const currentY = offset * (1 - easingFn(progress));
-
-    // Use transform for better performance, preserving any original transform
-    element.style.transform = `translateY(${currentY}px) ${originalTransform || ""}`;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
-  }
-
-  requestAnimationFrame(update);
-
-  // Return a promise that resolves when animation completes
   return new Promise((resolve) => {
-    setTimeout(resolve, duration);
+    const handleTransitionEnd = (event) => {
+      if (event.propertyName === "transform") {
+        // Clean up
+        element.removeEventListener("transitionend", handleTransitionEnd);
+        element.style.transition = originalTransition;
+        resolve();
+      }
+    };
+
+    element.addEventListener("transitionend", handleTransitionEnd);
+
+    // Start animation
+    requestAnimationFrame(() => {
+      element.style.transform = originalTransform || "none";
+      element.style.opacity = "1";
+    });
   });
 }
-
 document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
-  console.log("auth.js loaded");
-  const widget = document.querySelector(".kinde-layout-widget-content");
-  animateFromBelow(widget, 500, 100, "easeOutBack");
+  const image = document.querySelector("img");
+  const h2 = document.querySelector("h2");
+  const button1 = document.querySelector(
+    "button[value='ccd3cd1fd708417dbdc91ca6e1b39c61']"
+  );
+  const button2 = document.querySelector(
+    "button[value='4a7acc1cedaf498ab8de783d41b3ce98']"
+  );
+  const separator = document.querySelector(".kinde-choice-separator");
+
+  const emailInput = document.querySelector(
+    ".kinde-form-field.kinde-form-field-variant-select-text"
+  );
+  const button = document.querySelector(
+    ".kinde-button.kinde-button-variant-primary"
+  );
+  const text = document.querySelector(".kinde-fallback-action");
+  Promise.all([
+    animateFromBelow(image, 500, 100, 0),
+    animateFromBelow(h2, 500, 100, 100),
+    animateFromBelow(button1, 500, 100, 200),
+    animateFromBelow(button2, 500, 100, 300),
+    animateFromBelow(separator, 500, 100, 400),
+    animateFromBelow(emailInput, 500, 100, 500),
+    animateFromBelow(button, 500, 100, 600),
+    animateFromBelow(text, 500, 100, 700),
+  ]).then(() => {
+    console.log("All animations completed!");
+  });
 });

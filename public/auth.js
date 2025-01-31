@@ -38,7 +38,6 @@ function animateFromBelow(element, offset = 100, duration = 500, delay = 0) {
   });
 }
 document.addEventListener("DOMContentLoaded", (event) => {
-  animateFromBelow(document.querySelector("h2"), 500, 100, 0);
   // gsap code here!
   const image = document.querySelector("img");
   const h2 = document.querySelector("h2");
@@ -58,14 +57,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
   const text = document.querySelector(".kinde-fallback-action");
   Promise.all([
-    animateFromBelow(image, 500, 100, 0),
-    animateFromBelow(h2, 500, 100, 100),
-    animateFromBelow(button1, 500, 100, 200),
-    animateFromBelow(button2, 500, 100, 300),
-    animateFromBelow(separator, 500, 100, 400),
-    animateFromBelow(emailInput, 500, 100, 500),
-    animateFromBelow(button, 500, 100, 600),
-    animateFromBelow(text, 500, 100, 700),
+    animateFromBelow(image, 50, 300, 0),
+    animateFromBelow(h2, 50, 300, 100),
+    animateFromBelow(button1, 50, 300, 200),
+    animateFromBelow(button2, 50, 300, 300),
+    animateFromBelow(separator, 50, 300, 400),
+    animateFromBelow(emailInput, 50, 300, 500),
+    animateFromBelow(button, 50, 300, 600),
+    animateFromBelow(text, 50, 300, 700),
   ]).then(() => {
     console.log("All animations completed!");
   });

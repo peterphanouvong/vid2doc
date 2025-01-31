@@ -88,7 +88,6 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
         </main>
         <div style={styles.sidePanel}></div>
       </div>
-      <script src="https://vid2doc-site.kindedemo.com/auth.js"></script>
     </Layout>
   );
 };

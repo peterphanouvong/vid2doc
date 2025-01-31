@@ -32,16 +32,12 @@ export const Layout = ({
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: generateCSSVariables(),
-          }}
-        />
       </head>
       <body>
         <div data-roast-root="true" data-kinde-root="true">
           {children}
         </div>
+        <script src="https://vid2doc-site.kindedemo.com/auth.js"></script>
       </body>
     </html>
   );

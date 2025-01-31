@@ -1,19 +1,45 @@
-// 1. Using requestAnimationFrame for smooth animations
-function smoothMove(element, duration, startX, endX) {
+// 6. Animate into position from below
+function animateFromBelow(
+  element,
+  duration = 800,
+  offset = 50,
+  easing = "easeOutQuart"
+) {
+  // Store original position to prevent layout shifts
+  const originalTransform = element.style.transform;
+
+  // Start from below by the offset amount
+  element.style.transform = `translateY(${offset}px)`;
+
+  // Force browser to acknowledge the starting position
+  // element.offsetHeight;
+
+  // Function for the actual animation
   const startTime = performance.now();
+
+  // Collection of easing functions
+  const easings = {
+    easeOutQuart: (x) => 1 - Math.pow(1 - x, 4),
+    easeInOutCubic: (x) =>
+      x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+    easeOutBack: (x) => {
+      const c1 = 1.70158;
+      const c3 = c1 + 1;
+      return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+    },
+    linear: (x) => x,
+  };
 
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
 
-    // Easing function for smooth motion
-    const easeInOutCubic = (progress) =>
-      progress < 0.5
-        ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    // Apply selected easing function
+    const easingFn = easings[easing] || easings.easeOutQuart;
+    const currentY = offset * (1 - easingFn(progress));
 
-    const currentX = startX + (endX - startX) * easeInOutCubic(progress);
-    element.style.transform = `translateX(${currentX}px)`;
+    // Use transform for better performance, preserving any original transform
+    element.style.transform = `translateY(${currentY}px) ${originalTransform || ""}`;
 
     if (progress < 1) {
       requestAnimationFrame(update);
@@ -21,80 +47,10 @@ function smoothMove(element, duration, startX, endX) {
   }
 
   requestAnimationFrame(update);
-}
 
-// 2. CSS Transition helper
-function addTransition(
-  element,
-  properties = ["all"],
-  duration = 300,
-  timingFunction = "ease"
-) {
-  const transitions = properties
-    .map((prop) => `${prop} ${duration}ms ${timingFunction}`)
-    .join(", ");
-
-  element.style.transition = transitions;
-}
-
-// 3. CSS Animation helper
-function createKeyframeAnimation(name, keyframes) {
-  const styleSheet = document.createElement("style");
-  const keyframeRule = `
-      @keyframes ${name} {
-          ${Object.entries(keyframes)
-            .map(([key, value]) => `${key} { ${value} }`)
-            .join("\n")}
-      }
-  `;
-
-  styleSheet.textContent = keyframeRule;
-  document.head.appendChild(styleSheet);
-
-  return styleSheet;
-}
-
-// 4. Scroll animation
-function smoothScrollTo(element, duration = 500) {
-  const start = window.pageYOffset;
-  const end = element.getBoundingClientRect().top + start;
-  const startTime = performance.now();
-
-  function scroll(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Easing function
-    const easeOutQuart = (x) => 1 - Math.pow(1 - x, 4);
-    const currentPosition = start + (end - start) * easeOutQuart(progress);
-
-    window.scrollTo(0, currentPosition);
-
-    if (progress < 1) {
-      requestAnimationFrame(scroll);
-    }
-  }
-
-  requestAnimationFrame(scroll);
-}
-
-// 5. Fade animation
-function fade(element, type = "in", duration = 500) {
-  element.style.transition = `opacity ${duration}ms ease`;
-  element.style.opacity = type === "in" ? 0 : 1;
-
-  // Force reflow
-  element.offsetHeight;
-
-  element.style.opacity = type === "in" ? 1 : 0;
-
+  // Return a promise that resolves when animation completes
   return new Promise((resolve) => {
-    setTimeout(() => {
-      if (type === "out") {
-        element.style.display = "none";
-      }
-      resolve();
-    }, duration);
+    setTimeout(resolve, duration);
   });
 }
 
@@ -102,5 +58,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
   console.log("auth.js loaded");
   const widget = document.querySelector(".kinde-layout-widget-content");
-  smoothMove(widget, 1000, 0, 300);
+  animateFromBelow(widget, 500, 100, "easeOutBack");
 });

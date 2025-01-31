@@ -27,16 +27,16 @@ export const Layout = ({
         <title>{context.widget.content.page_title}</title>
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
-        {/* <link
+        <link
           rel="stylesheet"
           href="https://vid2doc-site.kindedemo.com/style.css"
-        ></link> */}
+        ></link>
       </head>
       <body>
         <div data-roast-root="true" data-kinde-root="true">
           {children}
         </div>
-        {/* <script src="https://vid2doc-site.kindedemo.com/auth.js"></script> */}
+        <script src="https://vid2doc-site.kindedemo.com/auth.js"></script>
       </body>
     </html>
   );

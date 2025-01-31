@@ -7,7 +7,6 @@ import {
   type KindePageEvent,
 } from "@kinde/infrastructure";
 import React from "react";
-import { generateCSSVariables } from "./styles";
 
 interface LayoutProps extends KindePageEvent {
   children: React.ReactNode;
@@ -25,13 +24,13 @@ export const Layout = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="noindex" />
         <meta name="csrf-token" content={getKindeCSRF()} />
+        <title>{context.widget.content.page_title}</title>
+        {getKindeRequiredCSS()}
+        {getKindeRequiredJS()}
         <link
           rel="stylesheet"
           href="https://vid2doc-site.kindedemo.com/style.css"
         ></link>
-        <title>{context.widget.content.page_title}</title>
-        {getKindeRequiredCSS()}
-        {getKindeRequiredJS()}
       </head>
       <body>
         <div data-roast-root="true" data-kinde-root="true">

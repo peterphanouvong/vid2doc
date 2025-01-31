@@ -38,6 +38,7 @@ function animateFromBelow(element, offset = 100, duration = 500, delay = 0) {
   });
 }
 document.addEventListener("DOMContentLoaded", (event) => {
+  animateFromBelow(document.querySelector("h2"), 500, 100, 0);
   // gsap code here!
   const image = document.querySelector("img");
   const h2 = document.querySelector("h2");

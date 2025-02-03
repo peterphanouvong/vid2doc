@@ -14,6 +14,7 @@
   --kinde-button-block-size: 2.75rem;
   --kinde-control-select-text-block-size: 2.75rem;
   --kinde-control-select-text-border-color: #ccc;
+  --kinde-button-primary-background-color-hover: #5c5ae6;
 
   /* Additional custom variables for themeing */
   --background-color: #fff;
@@ -34,6 +35,8 @@
     --kinde-button-secondary-color: #fff;
     --kinde-control-label-color: #fff;
     --kinde-control-select-text-border-color: #444;
+    --kinde-button-secondary-background-color-hover: #444;
+    --kinde-control-select-text-border-color-focus: #fff;
 
     /* Custom dark mode variables */
     --background-color: #1a1a1a;

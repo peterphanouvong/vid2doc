@@ -43,6 +43,10 @@
     --side-panel-border-color: #444;
     --separator-color: #444;
   }
+
+  .logo {
+    filter: invert(1);
+  }
 }
 
 /* Update your inline styles to use CSS variables */

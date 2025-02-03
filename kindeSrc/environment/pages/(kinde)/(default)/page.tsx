@@ -67,26 +67,26 @@ const styles: {
 const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
   return (
     <Layout context={context} request={request}>
-      <div style={styles.container}>
-        <main style={styles.loginForm}>
+      <div className="container">
+        <main className="login-form">
           <div style={{ padding: "2rem" }}>
             <div style={{ textAlign: "center" }}>
-              <div style={styles.logoWrapper}>
+              <div className="logo-wrapper">
                 <img
-                  style={styles.logo}
+                  className="logo"
                   src={getLogoUrl()}
                   alt={context.widget.content.logo_alt}
                 />
               </div>
-              <h2 style={styles.heading}>{context.widget.content.heading}</h2>
-              <p style={styles.description}>
+              <h2 className="heading">{context.widget.content.heading}</h2>
+              <p className="description">
                 {context.widget.content.description}
               </p>
             </div>
             {getKindeWidget()}
           </div>
         </main>
-        <div style={styles.sidePanel}></div>
+        <div className="side-panel"></div>
       </div>
     </Layout>
   );

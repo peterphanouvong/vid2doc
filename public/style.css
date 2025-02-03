@@ -28,8 +28,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --kinde-button-primary-background-color: #8482e6;
+    --kinde-button-primary-color: #fff;
     --kinde-button-secondary-background-color: #2a2a2a;
     --kinde-button-secondary-border-color: #444;
+    --kinde-button-secondary-color: #fff;
+    --kinde-control-label-color: #fff;
     --kinde-control-select-text-border-color: #444;
 
     /* Custom dark mode variables */

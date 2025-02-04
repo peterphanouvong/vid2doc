@@ -44,6 +44,7 @@
   --separator-color: var(--color-gray-300);
 
   /* Kinde Specific Variables */
+  --kinde-base-font-family: var(--font-family-base);
   --kinde-button-primary-background-color: var(--color-primary);
   --kinde-button-primary-color: var(--color-white);
   --kinde-button-primary-background-color-hover: var(--color-primary-hover);

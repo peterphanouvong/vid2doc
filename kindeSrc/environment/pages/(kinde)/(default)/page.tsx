@@ -25,6 +25,7 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
                     srcSet={getDarkModeLogoUrl()}
                   />
                   <img
+                    className="logo"
                     src={getLogoUrl()}
                     alt={context.widget.content.logo_alt}
                   />

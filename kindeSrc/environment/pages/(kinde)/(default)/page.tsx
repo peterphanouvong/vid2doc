@@ -23,12 +23,11 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
                   <source
                     media="(prefers-color-scheme: dark)"
                     srcSet={getDarkModeLogoUrl()}
-                  >
-                    <img
-                      src={getLogoUrl()}
-                      alt={context.widget.content.logo_alt}
-                    />
-                  </source>
+                  />
+                  <img
+                    src={getLogoUrl()}
+                    alt={context.widget.content.logo_alt}
+                  />
                 </picture>
 
                 <img

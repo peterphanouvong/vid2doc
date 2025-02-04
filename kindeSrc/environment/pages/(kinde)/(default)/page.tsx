@@ -1,6 +1,7 @@
 "use server";
 
 import {
+  getDarkModeLogoUrl,
   getKindeWidget,
   getLogoUrl,
   type KindePageEvent,
@@ -18,6 +19,17 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
           <div style={{ padding: "2rem" }}>
             <div style={{ textAlign: "center" }}>
               <div className="logo-wrapper">
+                <picture>
+                  <source
+                    media="(prefers-color-scheme: dark)"
+                    srcSet={getDarkModeLogoUrl()}
+                  />
+                  <img
+                    src={getLogoUrl()}
+                    alt={context.widget.content.logo_alt}
+                  />
+                </picture>
+
                 <img
                   className="logo"
                   src={getLogoUrl()}

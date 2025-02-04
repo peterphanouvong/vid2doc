@@ -141,13 +141,6 @@
   height: 2.75rem;
 }
 
-/* Dark mode logo adjustment */
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert(1);
-  }
-}
-
 /* Utility Classes */
 [data-kinde-choice-separator] {
   text-transform: lowercase;

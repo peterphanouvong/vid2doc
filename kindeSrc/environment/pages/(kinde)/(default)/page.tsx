@@ -29,12 +29,6 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
                     alt={context.widget.content.logo_alt}
                   />
                 </picture>
-
-                <img
-                  className="logo"
-                  src={getLogoUrl()}
-                  alt={context.widget.content.logo_alt}
-                />
               </div>
               <h2 className="heading">{context.widget.content.heading}</h2>
               <p className="description">

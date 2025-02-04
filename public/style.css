@@ -1,117 +1,159 @@
+/* 
+ * CSS Custom Properties - Theme Variables
+ * Organized by category for better maintainability
+ */
 :root {
-  /* Light mode variables */
-  --kinde-base-font-family: -apple-system, system-ui, BlinkMacSystemFont,
-    Helvetica, Arial, Segoe UI, Roboto, sans-serif;
-  --kinde-control-select-text-border-radius: 0.75rem;
-  --kinde-button-primary-background-color: #706ede;
-  --kinde-button-primary-color: #fff;
-  --kinde-button-border-radius: 0.75rem;
-  --kinde-button-secondary-background-color: #fff;
-  --kinde-button-secondary-border-width: 0.0625rem;
-  --kinde-button-secondary-border-color: #ccc;
-  --kinde-button-secondary-border-style: solid;
-  --kinde-button-secondary-border-radius: 0.75rem;
-  --kinde-button-block-size: 2.75rem;
-  --kinde-control-select-text-block-size: 2.75rem;
-  --kinde-control-select-text-border-color: #ccc;
-  --kinde-button-primary-background-color-hover: #5c5ae6;
+  /* Typography */
+  --font-family-base: -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
+    Arial, "Segoe UI", Roboto, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.5rem;
 
-  /* Additional custom variables for themeing */
-  --background-color: #fff;
-  --text-color: #000;
-  --description-color: #555;
-  --side-panel-background: #f5f5f5;
-  --side-panel-border-color: #ccc;
-  --separator-color: #ccc;
+  /* Colors - Light Theme */
+  --color-primary: #706ede;
+  --color-primary-hover: #5c5ae6;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-100: #f5f5f5;
+  --color-gray-300: #ccc;
+  --color-gray-500: #555;
+
+  /* Layout */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.75rem;
+  --border-radius-lg: 2rem;
+  --border-width: 0.0625rem;
+
+  /* Component Specific */
+  --button-height: 2.75rem;
+  --input-height: 2.75rem;
+  --min-form-width: 25rem;
+  --max-panel-width: 64rem;
+
+  /* Theme Variables */
+  --background-color: var(--color-white);
+  --text-color: var(--color-black);
+  --description-color: var(--color-gray-500);
+  --side-panel-background: var(--color-gray-100);
+  --side-panel-border-color: var(--color-gray-300);
+  --separator-color: var(--color-gray-300);
+
+  /* Kinde Specific Variables */
+  --kinde-button-primary-background-color: var(--color-primary);
+  --kinde-button-primary-color: var(--color-white);
+  --kinde-button-primary-background-color-hover: var(--color-primary-hover);
+  --kinde-button-border-radius: var(--border-radius-md);
+  --kinde-button-block-size: var(--button-height);
+
+  --kinde-button-secondary-background-color: var(--color-white);
+  --kinde-button-secondary-border-width: var(--border-width);
+  --kinde-button-secondary-border-color: var(--color-gray-300);
+  --kinde-button-secondary-border-style: solid;
+  --kinde-button-secondary-border-radius: var(--border-radius-md);
+
+  --kinde-control-select-text-border-radius: var(--border-radius-md);
+  --kinde-control-select-text-block-size: var(--input-height);
+  --kinde-control-select-text-border-color: var(--color-gray-300);
 }
 
-/* Dark mode styles */
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --kinde-button-primary-background-color: #8482e6;
-    --kinde-button-primary-color: #fff;
-    --kinde-button-secondary-background-color: #2a2a2a;
-    --kinde-button-secondary-border-color: #444;
-    --kinde-button-secondary-color: #fff;
-    --kinde-control-label-color: #fff;
-    --kinde-control-select-text-border-color: #444;
-    --kinde-button-secondary-background-color-hover: #444;
-    --kinde-control-select-text-border-color-focus: #fff;
+    --color-primary: #8482e6;
+    --color-dark-bg: #1a1a1a;
+    --color-dark-surface: #2a2a2a;
+    --color-dark-border: #444;
 
-    /* Custom dark mode variables */
-    --background-color: #1a1a1a;
-    --text-color: #fff;
+    /* Theme Overrides */
+    --background-color: var(--color-dark-bg);
+    --text-color: var(--color-white);
     --description-color: #bbb;
-    --side-panel-background: #2a2a2a;
-    --side-panel-border-color: #444;
-    --separator-color: #444;
-  }
+    --side-panel-background: var(--color-dark-surface);
+    --side-panel-border-color: var(--color-dark-border);
+    --separator-color: var(--color-dark-border);
 
-  .logo {
-    filter: invert(1);
+    /* Kinde Overrides */
+    --kinde-button-secondary-background-color: var(--color-dark-surface);
+    --kinde-button-secondary-border-color: var(--color-dark-border);
+    --kinde-button-secondary-color: var(--color-white);
+    --kinde-control-label-color: var(--color-white);
+    --kinde-control-select-text-border-color: var(--color-dark-border);
+    --kinde-button-secondary-background-color-hover: var(--color-dark-border);
+    --kinde-control-select-text-border-color-focus: var(--color-white);
   }
 }
 
-/* Update your inline styles to use CSS variables */
+/* Layout Components */
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 .side-panel {
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  background-color: var(--side-panel-background);
-  border-color: var(--side-panel-border-color);
-  border-style: solid;
-  border-width: 1px;
   flex: 1;
-  margin: 0.5rem;
-  max-width: 1024px;
+  max-width: var(--max-panel-width);
+  margin: var(--spacing-xs);
+  background-color: var(--side-panel-background);
+  border: var(--border-width) solid var(--side-panel-border-color);
+  border-radius: var(--border-radius-lg) var(--border-radius-sm)
+    var(--border-radius-sm) var(--border-radius-lg);
 }
 
 .login-form {
-  min-width: 400px;
+  min-width: var(--min-form-width);
   margin: 0 auto;
-  min-inline-size: 2rem;
+  padding: var(--spacing-sm);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* Typography */
 .heading {
+  font-size: var(--font-size-lg);
   font-weight: 600;
-  font-size: 1.5rem;
   color: var(--text-color);
 }
 
 .description {
-  font-size: 14px;
-  margin-bottom: 1.5rem;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
   color: var(--description-color);
 }
 
+/* Logo */
 .logo-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .logo {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
+/* Dark mode logo adjustment */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert(1);
+  }
+}
+
+/* Utility Classes */
 [data-kinde-choice-separator] {
   text-transform: lowercase;
   display: flex;
   align-items: center;
   text-align: center;
-  gap: 1rem;
+  gap: var(--spacing-sm);
   color: var(--description-color);
 }
 
@@ -119,7 +161,7 @@
 [data-kinde-choice-separator]::after {
   content: "";
   flex: 1;
-  border-bottom: 0.0625rem solid var(--separator-color);
+  border-bottom: var(--border-width) solid var(--separator-color);
 }
 
 [data-kinde-layout-widget-branding] {

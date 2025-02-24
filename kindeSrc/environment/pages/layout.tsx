@@ -28,6 +28,10 @@ export const Layout = ({
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <link
+          href="https://vid2doc-site.kindedemo.com/output.css"
+          rel="stylesheet"
+        ></link>
+        <link
           rel="stylesheet"
           href="https://vid2doc-site.kindedemo.com/style.css"
         ></link>

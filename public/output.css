@@ -8,6 +8,7 @@
       "Courier New", monospace;
     --color-red-50: oklch(0.971 0.013 17.38);
     --color-red-600: oklch(0.577 0.245 27.325);
+    --color-amber-50: oklch(0.987 0.022 95.277);
     --color-teal-200: oklch(0.91 0.096 180.426);
     --color-blue-50: oklch(0.97 0.014 254.604);
     --color-blue-200: oklch(0.882 0.059 254.128);
@@ -410,6 +411,9 @@
   .border-gray-200\/50 {
     border-color: color-mix(in oklab, var(--color-gray-200) 50%, transparent);
   }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
   .bg-blue-200\/30 {
     background-color: color-mix(in oklab, var(--color-blue-200) 30%, transparent);
   }
@@ -478,6 +482,9 @@
   }
   .bg-clip-text {
     background-clip: text;
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
   }
   .p-3 {
     padding: calc(var(--spacing) * 3);

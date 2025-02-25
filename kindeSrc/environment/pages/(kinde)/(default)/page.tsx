@@ -16,7 +16,7 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
     <Layout context={context} request={request}>
       <div className="container">
         <main className="login-form">
-          <div className="p-2 bg-amber-50">
+          <div className="p-2">
             <div style={{ textAlign: "center" }}>
               <div className="logo-wrapper">
                 <picture>
